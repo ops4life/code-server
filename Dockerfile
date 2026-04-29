@@ -9,7 +9,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     jq \
     nodejs \
     npm \
-  && pip3 install --no-cache-dir --break-system-packages pre-commit \
+  && pip3 install --no-cache-dir --break-system-packages \
+    pre-commit \
+    playwright \
+    pytest-playwright \
+    uvicorn \
+  && playwright install-deps chromium \
   && ln -s /opt/vps-apps/scripts/docling.sh /usr/local/bin/docling \
   && rm -rf /var/lib/apt/lists/*
 
