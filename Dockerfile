@@ -7,6 +7,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     python3-pip \
     python3-venv \
     jq \
+    nodejs \
+    npm \
   && pip3 install --no-cache-dir --break-system-packages \
     pre-commit \
     playwright \
