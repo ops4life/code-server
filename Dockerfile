@@ -16,7 +16,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     uvicorn \
   && playwright install-deps chromium \
   && npx --yes playwright install chrome \
-  && ln -s /opt/vps-apps/scripts/docling.sh /usr/local/bin/docling \
   && rm -rf /var/lib/apt/lists/*
 
 ENV PATH="/root/.local/bin:${PATH}"
