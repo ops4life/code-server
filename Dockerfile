@@ -12,6 +12,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   && pip3 install --no-cache-dir --break-system-packages \
     pre-commit \
     playwright \
+    pytest \
     pytest-playwright \
     uvicorn \
   && playwright install-deps chromium \
