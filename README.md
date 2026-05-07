@@ -1,12 +1,13 @@
 # code-server
 
-Custom [code-server](https://github.com/coder/code-server) Docker image built on top of `codercom/code-server:latest`, with added Python tooling.
+Custom [code-server](https://github.com/coder/code-server) Docker image built on top of `codercom/code-server:latest`, with added Python tooling and `bubblewrap` for Codex sandbox support.
 
 ## What's included
 
 - `python3`, `python3-pip`, `python3-venv`
 - `jq`
 - `pre-commit`
+- `bubblewrap` (`bwrap`) for Codex sandbox prerequisites
 
 ## Image
 
