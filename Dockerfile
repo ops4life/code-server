@@ -11,6 +11,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     python3 \
     python3-pip \
     python3-venv \
+    ansible \
     jq \
     nodejs \
   && pip3 install --no-cache-dir --break-system-packages \
