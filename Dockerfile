@@ -22,6 +22,14 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     uvicorn \
   && playwright install-deps chromium \
   && python3 -m playwright install chromium \
+  && cat >/etc/profile.d/docker_aliases.sh <<'EOF' \
+# docker shortcuts
+alias dc='docker compose'
+alias dcr='docker compose restart'
+alias dcub='docker compose up -d --build'
+EOF \
+  && printf "\n# docker shortcuts\nalias dc='docker compose'\nalias dcr='docker compose restart'\nalias dcub='docker compose up -d --build'\n" >> /root/.bashrc \
+  && printf "\n# docker shortcuts\nalias dc='docker compose'\nalias dcr='docker compose restart'\nalias dcub='docker compose up -d --build'\n" >> /home/coder/.bashrc \
   && rm -rf /var/lib/apt/lists/* /tmp/*
 
 ENV PATH="/root/.local/bin:${PATH}"
