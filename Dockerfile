@@ -13,6 +13,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     python3-venv \
     ansible \
     jq \
+    ripgrep \
     nodejs \
   && pip3 install --no-cache-dir --break-system-packages \
     pre-commit \
