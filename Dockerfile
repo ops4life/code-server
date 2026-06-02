@@ -22,11 +22,14 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     pytest \
     pytest-playwright \
     uvicorn \
-  && playwright install-deps chromium \
-  && python3 -m playwright install chromium \
+  && PLAYWRIGHT_BROWSERS_PATH=/usr/local/share/playwright playwright install-deps chromium \
+  && PLAYWRIGHT_BROWSERS_PATH=/usr/local/share/playwright python3 -m playwright install chromium \
   && printf "# docker shortcuts\nalias dc='docker compose'\nalias dcr='docker compose restart'\nalias dx='docker compose up -d --build'\n" > /etc/profile.d/docker_aliases.sh \
-  && printf "\n# docker shortcuts\nalias dc='docker compose'\nalias dcr='docker compose restart'\nalias dx='docker compose up -d --build'\n" >> /root/.bashrc \
-  && printf "\n# docker shortcuts\nalias dc='docker compose'\nalias dcr='docker compose restart'\nalias dx='docker compose up -d --build'\n" >> /home/coder/.bashrc \
+  && usermod -l ubuntu coder \
+  && usermod -d /home/ubuntu -m ubuntu \
+  && groupmod -n ubuntu coder \
+  && printf "\n# docker shortcuts\nalias dc='docker compose'\nalias dcr='docker compose restart'\nalias dx='docker compose up -d --build'\n" >> /home/ubuntu/.bashrc \
   && rm -rf /var/lib/apt/lists/* /tmp/*
 
-ENV PATH="/root/.local/bin:${PATH}"
+ENV PATH="/home/ubuntu/.local/bin:${PATH}"
+ENV PLAYWRIGHT_BROWSERS_PATH=/usr/local/share/playwright
