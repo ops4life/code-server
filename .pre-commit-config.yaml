@@ -1,0 +1,10 @@
+repos:
+  - repo: local
+    hooks:
+      - id: bump-parent-submodule-ref
+        name: Bump code-server ref in vps-apps
+        entry: bash -c "git -C /opt/vps-apps submodule update --remote 'code-server' && git -C /opt/vps-apps add 'code-server'"
+        language: system
+        pass_filenames: false
+        always_run: true
+        stages: [post-commit]
