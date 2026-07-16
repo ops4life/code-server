@@ -1,6 +1,6 @@
 # code-server
 
-Custom [code-server](https://github.com/coder/code-server) Docker image built on top of `codercom/code-server:latest`, with added Python tooling and `bubblewrap` for Codex sandbox support.
+Custom [code-server](https://github.com/coder/code-server) Docker image built on top of `codercom/code-server:latest`, with added Python tooling and `bubblewrap` for Codex sandbox support. Live at [code.ops4life.com](https://code.ops4life.com) as part of the [Ops4Life](https://ops4life.com) self-hosted stack.
 
 ## What's included
 
