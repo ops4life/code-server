@@ -20,7 +20,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     ripgrep \
     nodejs \
     gh \
-  && pip3 install --no-cache-dir --break-system-packages \
+  && pip3 install --no-cache-dir --break-system-packages --ignore-installed packaging \
     pre-commit \
     playwright \
     pytest \
