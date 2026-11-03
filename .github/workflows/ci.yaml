@@ -1,0 +1,17 @@
+name: CI
+
+# Build-only check so dependency/base-image bumps are proven before merge.
+# docker-publish.yml only runs on main and pushes the image.
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - name: Build image (no push)
+        run: docker build -t code-server:ci .
