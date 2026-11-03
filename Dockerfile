@@ -15,19 +15,21 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     python3 \
     python3-pip \
     python3-venv \
-    ansible \
+    ansible-core \
     jq \
     ripgrep \
     nodejs \
     gh \
-  && pip3 install --no-cache-dir --break-system-packages \
+  && pip3 install --no-cache-dir --break-system-packages --ignore-installed packaging \
     pre-commit \
     playwright \
     pytest \
     pytest-playwright \
     uvicorn \
+  && ansible-galaxy collection install --no-cache -p /usr/share/ansible/collections \
+    community.general community.docker ansible.posix \
   && PLAYWRIGHT_BROWSERS_PATH=/usr/local/share/playwright playwright install-deps chromium \
-  && PLAYWRIGHT_BROWSERS_PATH=/usr/local/share/playwright python3 -m playwright install chromium \
+  && PLAYWRIGHT_BROWSERS_PATH=/usr/local/share/playwright python3 -m playwright install --only-shell chromium \
   && printf "# docker shortcuts\nalias dc='docker compose'\nalias dcr='docker compose restart'\nalias dx='docker compose up -d --build'\n" > /etc/profile.d/docker_aliases.sh \
   && usermod -l ubuntu coder \
   && usermod -d /home/ubuntu -m ubuntu \
