@@ -17,6 +17,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     python3-venv \
     ansible-core \
     jq \
+    libatomic1 \
     ripgrep \
     nodejs \
     gh \
