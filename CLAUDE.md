@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-This repo builds a custom `code-server` Docker image on top of `codercom/code-server:latest`, adding Python tooling (`pre-commit`, `jq`). The image is published to Docker Hub as `ops4life/code-server`.
+This repo builds a custom `code-server` Docker image on top of `codercom/code-server:4.145.2`, adding Python tooling (`pre-commit`, `jq`). The image is published to Docker Hub as `ops4life/code-server`.
 
 ## CI/CD
 
